@@ -17,25 +17,17 @@ pipeline {
         always {
 	emailext body: 'helle day la jenkin nha', subject: 'test jenkin', to: 'datbeo12c@gmail.com'
         }
-        success {
-             mail to: 'datbeo12c@gmail.com',
-             subject: "success Pipeline: ${currentBuild.fullDisplayName}",
-             body: "true  ${env.BUILD_URL}"
+	        success {
+            echo 'I succeeded!'
         }
         unstable {
-             mail to: 'datbeo12c@gmail.com',
-             subject: "unstable Pipeline: ${currentBuild.fullDisplayName}",
-             body: "unstable  ${env.BUILD_URL}"
+            echo 'I am unstable :/'
         }
         failure {
-             mail to: 'datbeo12c@gmail.com',
-             subject: "failure Pipeline: ${currentBuild.fullDisplayName}",
-             body: "failse  ${env.BUILD_URL}"
+            echo 'I failed :('
         }
         changed {
-             mail to: 'datbeo12c@gmail.com',
-             subject: "change Pipeline: ${currentBuild.fullDisplayName}",
-             body: "change  ${env.BUILD_URL}"
+            echo 'Things were different before...'
         }
     }
 }
