@@ -18,16 +18,16 @@ pipeline {
 	emailext body: 'helle day la jenkin nha', subject: 'test jenkin', to: 'datbeo12c@gmail.com'
         }
 	        success {
-            echo 'I succeeded!'
+            emailext body: 'ok', subject: '${DEFAULT_CONTENT}', to: '${DEFAULT_SUBJECT}'
         }
         unstable {
-            echo 'I am unstable :/'
+            emailext body: 'unstable', subject: '${DEFAULT_CONTENT}', to: '${DEFAULT_SUBJECT}'
         }
         failure {
-            echo 'I failed :('
+            emailext body: 'failure', subject: '${DEFAULT_CONTENT}', to: '${DEFAULT_SUBJECT}'
         }
         changed {
-            echo 'Things were different before...'
+            emailext body: 'change', subject: '${DEFAULT_CONTENT}', to: '${DEFAULT_SUBJECT}'
         }
     }
 }
