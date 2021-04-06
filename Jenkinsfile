@@ -8,7 +8,7 @@ pipeline {
           }
           stage("build image") {
                steps {
-                    sh 'docker build -t nodejs1:1 .'
+                    sh 'docker build -t nodejs12:2 .'
                }
           }
      }
